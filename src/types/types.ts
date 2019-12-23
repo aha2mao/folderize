@@ -11,4 +11,6 @@ export type Option = {
    label: string,
    description: string,
    createFile?: string,
+   fileContent?: string,
+   createFolder?: string,
 };

@@ -9,10 +9,17 @@ export const getOptions = (c: Context) => {
 			'createFile': `${c.fileName}.test.${c.filePath}`
 		},
 		{
-			'id': 'css_module',
+			'id': 'style',
 			'label': 'Add CSS module',
-			'description': `${c.fileName}.module.css`,
-			'createFile': `${c.fileName}.module.css`
+			'description': `${c.fileName}.style.js`,
+			'createFile': `${c.fileName}.style.js`,
+			'fileContent': `import * as StyleSheet from 'VUI/StyleSheet'\nimport {pageBackgroundColor} from 'VUI/Colors'\n\nexport default StyleSheet.create({\n    container: {\n        flex: 1,\n        height: '100%',\n        backgroundColor: pageBackgroundColor\n    }\n})`
+		},
+		{
+			'id': 'images',
+			'label': 'Add image folder',
+			'description': 'images',
+			'createFolder': 'images'
 		}
 	];
 };

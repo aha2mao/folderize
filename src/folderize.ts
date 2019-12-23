@@ -31,7 +31,7 @@ const updateLocalImports = (c: Context, o: Option[]) => {
 		const newPath = match.replace(stringRegex, formatImportPath);
 		return newPath;
 	});
-	const importCss = o.some(option => option.id === 'css_module');
+	const importCss = o.some(option => option.id === 'style');
 	if (importCss) {
 		updatedText = updatedText.replace(firstEmptyLineRegex, () => {
 			return formatCssImport(c.fileName);
@@ -45,7 +45,11 @@ const createOptionalFiles = (c: Context, o: Option[]) => {
 		if (option.createFile) {
 			const name = option.createFile;
 			const path = c.folderPath + '/' + name;
-			writeFileSync(path, '');
+			writeFileSync(path, option.fileContent || '');
+		} else if (option.createFolder) {
+			const name = option.createFolder;
+			// const path = c.folderPath + '/' + name;
+			mkdirSync(c.folderPath + '/' + name);
 		}
 	});
 };

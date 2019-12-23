@@ -3,7 +3,7 @@ export const formatIndexFile = (name: string) => {
 };
 
 export const formatCssImport = (name: string) => {
-	return `\nimport styles from './${name}.module.css'\n\n`;
+	return `\nimport styles from './${name}.style.js'\n\n`;
 };
 
 export const formatImportPath = (s: string) => {
